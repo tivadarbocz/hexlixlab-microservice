@@ -51,7 +51,7 @@ public class SwaggerConfig implements SwaggerResourcesProvider {
                 .title("Routing Gateway(Zuul): utilize swagger2 polymerization API File")
                 .description("API description")
                 // Author information
-                .contact(new Contact("Tivadar Bocz", "https://examplr.com", "example@gmail.com"))
+                .contact(new Contact("Tivadar Bocz", "https://example.com", "example@gmail.com"))
                 .version("1.0.0")
                 .termsOfServiceUrl("https://ww.example.com")
                 .build();
