@@ -17,10 +17,12 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>eureka</module>
-        <module>payment</module>
-        <module>webshop</module>
-        <module>zuul</module>
+        <module>entity</module> <!-- entities-->
+        <module>dao</module> <!-- repository layer-->
+        <module>eureka</module> <!-- eureka service registry -->
+        <module>payment</module> <!-- micro service 1 -->
+        <module>webshop</module> <!-- micro service 2 -->
+        <module>zuul</module> <!-- zuul gateway -->
     </modules>
 
     <dependencies>
