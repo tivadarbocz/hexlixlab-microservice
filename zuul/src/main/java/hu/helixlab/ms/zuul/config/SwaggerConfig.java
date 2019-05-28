@@ -3,17 +3,12 @@ package hu.helixlab.ms.zuul.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -39,9 +34,8 @@ public class SwaggerConfig implements SwaggerResourcesProvider {
     public List get() {
         List resources = new ArrayList<>();
         resources.add(swaggerResource("payment-service", "/payment/v2/api-docs", "2.0"));
-//        resources.add(swaggerResource("customer-service", "/api/customer/v2/api-docs", "2.0"));
-//        resources.add(swaggerResource("product-service", "/api/product/v2/api-docs", "2.0"));
-//        resources.add(swaggerResource("transfer-service", "/api/transfer/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("webshop-service", "/webshop/v2/api-docs", "2.0"));
+
         return resources;
     }
 
@@ -57,7 +51,7 @@ public class SwaggerConfig implements SwaggerResourcesProvider {
                 .build();
     }
 
-    private SwaggerResource swaggerResource(String name,String location, String version) {
+    private SwaggerResource swaggerResource(String name, String location, String version) {
         SwaggerResource swaggerResource = new SwaggerResource();
         swaggerResource.setName(name);
         swaggerResource.setLocation(location);
