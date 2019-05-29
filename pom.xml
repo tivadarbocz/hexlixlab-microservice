@@ -22,7 +22,7 @@
         <module>eureka</module> <!-- eureka service registry -->
         <module>payment</module> <!-- micro service 1 -->
         <module>webshop</module> <!-- micro service 2 -->
-        <module>delivery</module>
+        <module>delivery</module> <!-- micro service 3 -->
         <module>zuul</module> <!-- zuul gateway -->
     </modules>
 

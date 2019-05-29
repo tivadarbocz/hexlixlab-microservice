@@ -4,8 +4,10 @@ public class DeliveryInfo {
     private Long id;
     private String firstname;
     private String lastname;
-    //...
+    private String status;
 
+    public DeliveryInfo() {
+    }
 
     public DeliveryInfo(String firstname, String lastname) {
         this.firstname = firstname;
@@ -40,5 +42,13 @@ public class DeliveryInfo {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
