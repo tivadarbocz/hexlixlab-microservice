@@ -25,6 +25,7 @@
         <module>webshop</module> <!-- micro service 2 - webshop module-->
         <module>delivery</module> <!-- micro service 3 - delivery module -->
         <module>zuul</module> <!-- zuul gateway -->
+        <module>daemon</module> <!-- background jobs -->
     </modules>
 
     <dependencies>

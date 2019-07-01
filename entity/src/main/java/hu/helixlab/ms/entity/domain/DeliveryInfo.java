@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "delivery_informations", schema = "public")
@@ -17,5 +18,15 @@ public class DeliveryInfo {
     @SequenceGenerator(name = "delivery_info_generator",
             sequenceName = "delivery_info_seq")
     private Long id;
+
+    private String address;
+
+    @Email
+    private String email;
+
+    @Column(length = 24)
+    private String phone;
+
+    @Column(length = 64)
     private String barCode;
 }
