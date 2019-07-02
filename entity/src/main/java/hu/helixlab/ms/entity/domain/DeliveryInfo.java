@@ -19,14 +19,21 @@ public class DeliveryInfo {
             sequenceName = "delivery_info_seq")
     private Long id;
 
-    private String address;
+    private String senderAddress;
+
+    private String recipientAddress;
 
     @Email
-    private String email;
+    private String senderEmail;
+
+    @Email
+    private String recipientEmail;
 
     @Column(length = 24)
     private String phone;
 
     @Column(length = 64)
     private String barCode;
+
+    private String note;
 }
