@@ -36,4 +36,7 @@ public class DeliveryInfo {
     private String barCode;
 
     private String note;
+
+    @OneToOne(mappedBy = "deliveryInfo")
+    private Order order;
 }

@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories(basePackages = {"hu.helixlab.ms"})
-@EntityScan(basePackages = {"hu.helixlab.ms"})
+@EntityScan(basePackages = {"hu.helixlab.ms.entity"})
+@EnableJpaRepositories(basePackages = {"hu.helixlab.ms.dao.repository"})
 @ComponentScan(basePackages = {"hu.helixlab.ms"})
 @SpringBootApplication
 public class WebshopApplication {

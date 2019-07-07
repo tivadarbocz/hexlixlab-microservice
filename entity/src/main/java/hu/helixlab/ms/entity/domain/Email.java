@@ -1,5 +1,6 @@
 package hu.helixlab.ms.entity.domain;
 
+import hu.helixlab.ms.entity.enumeration.EmailStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,4 +17,16 @@ public class Email {
     @SequenceGenerator(name = "email_generator",
             sequenceName = "email_seq")
     private Long id;
+
+    @javax.validation.constraints.Email
+    private String senderEmail;
+
+    private String recipientEmail;
+
+    private String subject;
+
+    private String text;
+
+    @Enumerated(EnumType.STRING)
+    private EmailStatus emailStatus;
 }
