@@ -32,7 +32,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "delivery_info_id", referencedColumnName = "id")
     private DeliveryInfo deliveryInfo;
 }

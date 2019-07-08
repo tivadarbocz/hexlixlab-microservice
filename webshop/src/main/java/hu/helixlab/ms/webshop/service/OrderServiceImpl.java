@@ -1,5 +1,6 @@
 package hu.helixlab.ms.webshop.service;
 
+import hu.helixlab.ms.dao.repository.DeliveryInfoRepository;
 import hu.helixlab.ms.dao.repository.OrderRepository;
 import hu.helixlab.ms.dao.repository.ProductRepository;
 import hu.helixlab.ms.entity.domain.DeliveryInfo;
@@ -24,10 +25,12 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
+    private final DeliveryInfoRepository deliveryInfoRepository;
 
-    public OrderServiceImpl(OrderRepository orderRepository, ProductRepository productRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, ProductRepository productRepository, DeliveryInfoRepository deliveryInfoRepository) {
         this.orderRepository = orderRepository;
         this.productRepository = productRepository;
+        this.deliveryInfoRepository = deliveryInfoRepository;
     }
 
     @Override
@@ -43,22 +46,14 @@ public class OrderServiceImpl implements OrderService {
         order.setPaymentStatus(PaymentStatus.WAITING);
         order.setOrderStatus(OrderStatus.CREATED);
 
-        //TODO do something with deliveryInfo
-        DeliveryInfo deliveryInfo = new DeliveryInfo();
-        deliveryInfo.setOrder(order);
-
-
-        HttpEntity<DeliveryInfo> httpEntity = new HttpEntity<>(deliveryInfo);
-
+        HttpEntity<DeliveryInfo> httpEntity = new HttpEntity<>(order.getDeliveryInfo());
 
         RestTemplate restTemplate = new RestTemplate();
-        deliveryInfo = restTemplate.postForObject("http://localhost:8762/delivery/deliveries",
-                httpEntity, DeliveryInfo.class);
-
         //TODO move url into the application.properties
-        order.setDeliveryInfo(deliveryInfo);
+        order.setDeliveryInfo(restTemplate.postForObject("http://localhost:8762/delivery/deliveries",
+                httpEntity, DeliveryInfo.class));
 
-        return orderRepository.save(order);
+        return orderRepository.saveAndFlush(order);
     }
 
     @Override
