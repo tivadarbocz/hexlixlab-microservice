@@ -37,6 +37,6 @@ public class DeliveryInfo {
 
     private String note;
 
-    @OneToOne(mappedBy = "deliveryInfo")
-    private Order order;
+    //@OneToOne(mappedBy = "deliveryInfo")
+    //private Order order;
 }
