@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
         order.setDeliveryInfo(restTemplate.postForObject("http://localhost:8762/delivery/deliveries",
                 httpEntity, DeliveryInfo.class));
 
-        return orderRepository.saveAndFlush(order);
+        return orderRepository.save(order);
     }
 
     @Override

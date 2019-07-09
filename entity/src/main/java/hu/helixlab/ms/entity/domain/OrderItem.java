@@ -1,5 +1,6 @@
 package hu.helixlab.ms.entity.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,7 @@ public class OrderItem {
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
+    @JsonBackReference //https://stackoverflow.com/questions/29876978/spring-data-rest-one-to-many-cascade-all/29896204
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;

@@ -36,6 +36,8 @@ public class DeliveryServiceImpl implements DeliveryService {
         email.setText("Bla bla bla");
         //TODO ... Maybe use a converter?
 
+        emailRepository.save(email);
+
         return deliveryInfo;
     }
 
